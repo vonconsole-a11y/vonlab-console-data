@@ -3,7 +3,7 @@
     "id": "vonconsole-zm48",
     "name": "VonConsole",
     "description": "name:vonconsole-a11y HPR0KEEFnS6AR4WVd41PlG7181DzjV2Imhd7",
-    "version": "1.0.3",
+    "version": "1.1.0",
     "repo": "vonlab-vonconsole",
     "path": "index.html",
     "mode": "multi",
@@ -49,6 +49,13 @@
         "note": "ara yuz guncellendi",
         "commitSha": "72c5c39f50042b922cbebc43152a4ef34d34d698",
         "sourceFileName": "vonhub-console (12).html"
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-08-28T14:07:53.041Z",
+        "note": "mobil arayuz eklendi",
+        "commitSha": "902604ba9c6b8e31f7d66ea6af46e958cea3ec6b",
+        "sourceFileName": "vonhub-console-mobile.html"
       }
     ],
     "track": "production",
