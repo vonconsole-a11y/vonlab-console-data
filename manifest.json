@@ -69,7 +69,7 @@
     "category": "ERP",
     "group": "",
     "favorite": false,
-    "archived": true,
+    "archived": false,
     "files": [
       "index.html"
     ],
