@@ -107,7 +107,7 @@
     "id": "keepalive-nae3",
     "name": "KeepAlive",
     "description": "supabase datalari olmesin\nproject id:uqdiiuqpkvqxunxthpbj\napi:sb_publishable_OVeHJcQu0baBolEmE7JTmw_TZd74LNs",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "repo": "vonlab-keepalive",
     "path": "index.html",
     "mode": "multi",
@@ -134,6 +134,13 @@
         "note": "İlk sürüm",
         "commitSha": "35108deac92c9eda366de5867961cf055ddc3d3a",
         "sourceFileName": "keepalive.html"
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-08-28T15:00:17.196Z",
+        "note": "supabase destegi",
+        "commitSha": "b965c27539a05194baa7ad58652a748a68021334",
+        "sourceFileName": "index2.html"
       }
     ],
     "track": "alpha",
