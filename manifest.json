@@ -74,8 +74,8 @@
       "index.html"
     ],
     "analytics": {
-      "enabled": true,
-      "code": "panther"
+      "enabled": false,
+      "code": ""
     },
     "createdAt": "2026-08-28T12:17:08.843Z",
     "versionHistory": [
