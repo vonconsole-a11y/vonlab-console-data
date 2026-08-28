@@ -39,5 +39,40 @@
     ],
     "track": "production",
     "rollout": 100
+  },
+  {
+    "id": "panther-279i",
+    "name": "Panther",
+    "description": "",
+    "version": "1.0.0",
+    "repo": "vonlab-panther",
+    "path": "index.html",
+    "mode": "multi",
+    "published": false,
+    "pagesUrl": "",
+    "customDomain": "",
+    "icon": null,
+    "category": "ERP",
+    "group": "",
+    "favorite": false,
+    "archived": false,
+    "files": [
+      "index.html"
+    ],
+    "analytics": {
+      "enabled": false,
+      "code": ""
+    },
+    "createdAt": "2026-08-28T12:17:08.843Z",
+    "versionHistory": [
+      {
+        "version": "1.0.0",
+        "date": "2026-08-28T12:17:08.843Z",
+        "note": "İlk sürüm",
+        "commitSha": "e6d01e78dd2102123e902b76c5e83a4e0780e021"
+      }
+    ],
+    "track": "production",
+    "rollout": 100
   }
 ]
