@@ -87,6 +87,6 @@
       }
     ],
     "track": "production",
-    "rollout": 0
+    "rollout": 100
   }
 ]
