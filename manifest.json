@@ -106,7 +106,7 @@
   {
     "id": "keepalive-nae3",
     "name": "KeepAlive",
-    "description": "supabase datalari olmesin\nproject id:uqdiiuqpkvqxunxthpbj\napi:sb_publishable_OVeHJcQu0baBolEmE7JTmw_TZd74LNs",
+    "description": "supabase datalari olmesin\nbagli oldugu supabase hesabi : vonlabstudio\nproject id:uqdiiuqpkvqxunxthpbj\napi:sb_publishable_OVeHJcQu0baBolEmE7JTmw_TZd74LNs",
     "version": "1.1.0",
     "repo": "vonlab-keepalive",
     "path": "index.html",
