@@ -67,8 +67,8 @@
       "index.html"
     ],
     "analytics": {
-      "enabled": false,
-      "code": ""
+      "enabled": true,
+      "code": "https://panther.goatcounter.com/count"
     },
     "createdAt": "2026-08-28T12:17:08.843Z",
     "versionHistory": [
