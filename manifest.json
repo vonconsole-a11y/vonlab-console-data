@@ -51,7 +51,7 @@
     "id": "panther-279i",
     "name": "Panther",
     "description": "supabase github hesabi : vonlabstudio@gmail.com",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "repo": "vonlab-panther",
     "path": "index.html",
     "mode": "multi",
@@ -77,6 +77,13 @@
         "date": "2026-08-28T12:17:08.843Z",
         "note": "İlk sürüm",
         "commitSha": "e6d01e78dd2102123e902b76c5e83a4e0780e021"
+      },
+      {
+        "version": "1.1.0",
+        "date": "2026-08-28T12:32:46.852Z",
+        "note": "",
+        "commitSha": "10464e53839d0ff35ea738c4b7b8200c62f3ada6",
+        "sourceFileName": "panther (34).html"
       }
     ],
     "track": "production",
