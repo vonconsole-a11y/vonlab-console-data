@@ -3,7 +3,7 @@
     "id": "vonconsole-zm48",
     "name": "VonConsole",
     "description": "name:vonconsole-a11y HPR0KEEFnS6AR4WVd41PlG7181DzjV2Imhd7",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "repo": "vonlab-vonconsole",
     "path": "index.html",
     "mode": "multi",
@@ -35,6 +35,13 @@
         "date": "2026-08-28T12:16:10.305Z",
         "note": "",
         "commitSha": "73cf19fce1703a822c750938f77fcf015de5b42a"
+      },
+      {
+        "version": "1.0.2",
+        "date": "2026-08-28T12:30:49.988Z",
+        "note": "",
+        "commitSha": "aa888d5d1695aeb5f209309221153c15af7e02eb",
+        "sourceFileName": "vonhub-console (10).html"
       }
     ],
     "track": "production",
