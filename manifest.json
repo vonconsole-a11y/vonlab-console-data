@@ -203,7 +203,7 @@
     "icon": null,
     "category": "",
     "group": "",
-    "favorite": false,
+    "favorite": true,
     "archived": false,
     "files": [
       "index.html"
