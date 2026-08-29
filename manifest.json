@@ -193,7 +193,7 @@
     "id": "eli-chat-nv3t",
     "name": "Eli chat",
     "description": "",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "repo": "vonlab-console-data",
     "path": "apps/eli-chat-nv3t/index.html",
     "mode": "single",
@@ -220,6 +220,13 @@
         "note": "İlk sürüm",
         "commitSha": "ca8a2ce33ac8dec015b0df66723837f23569aed8",
         "sourceFileName": "yazisma.html"
+      },
+      {
+        "version": "1.0.1",
+        "date": "2026-08-29T19:27:42.379Z",
+        "note": "",
+        "commitSha": "250ad9fb631607f132b822a2f4b371b4d41df406",
+        "sourceFileName": "yazisma-1.html"
       }
     ],
     "track": "production",
