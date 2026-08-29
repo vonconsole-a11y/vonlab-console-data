@@ -181,5 +181,41 @@
     ],
     "track": "production",
     "rollout": 100
+  },
+  {
+    "id": "eli-chat-nv3t",
+    "name": "Eli chat",
+    "description": "",
+    "version": "1.0.0",
+    "repo": "vonlab-console-data",
+    "path": "apps/eli-chat-nv3t/index.html",
+    "mode": "single",
+    "published": false,
+    "pagesUrl": "",
+    "customDomain": "",
+    "icon": null,
+    "category": "",
+    "group": "",
+    "favorite": false,
+    "archived": false,
+    "files": [
+      "index.html"
+    ],
+    "analytics": {
+      "enabled": false,
+      "code": ""
+    },
+    "createdAt": "2026-08-29T19:21:32.839Z",
+    "versionHistory": [
+      {
+        "version": "1.0.0",
+        "date": "2026-08-29T19:21:32.840Z",
+        "note": "İlk sürüm",
+        "commitSha": "ca8a2ce33ac8dec015b0df66723837f23569aed8",
+        "sourceFileName": "yazisma.html"
+      }
+    ],
+    "track": "production",
+    "rollout": 100
   }
 ]
