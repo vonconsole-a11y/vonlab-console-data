@@ -145,5 +145,41 @@
     ],
     "track": "alpha",
     "rollout": 100
+  },
+  {
+    "id": "sphinxcode-7c5z",
+    "name": "SphinxCode",
+    "description": "kodlama programi",
+    "version": "1.0.0",
+    "repo": "vonlab-sphinxcode",
+    "path": "index.html",
+    "mode": "multi",
+    "published": false,
+    "pagesUrl": "",
+    "customDomain": "",
+    "icon": null,
+    "category": "TOOL",
+    "group": "",
+    "favorite": false,
+    "archived": false,
+    "files": [
+      "index.html"
+    ],
+    "analytics": {
+      "enabled": false,
+      "code": ""
+    },
+    "createdAt": "2026-08-29T10:16:56.154Z",
+    "versionHistory": [
+      {
+        "version": "1.0.0",
+        "date": "2026-08-29T10:16:56.155Z",
+        "note": "İlk sürüm",
+        "commitSha": "6c78ff66b6bd3a300d2cfd99b4529bc0b2728522",
+        "sourceFileName": "vonlab-launcher.html"
+      }
+    ],
+    "track": "production",
+    "rollout": 100
   }
 ]
