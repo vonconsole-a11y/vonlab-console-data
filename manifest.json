@@ -107,7 +107,7 @@
     "id": "keepalive-nae3",
     "name": "KeepAlive",
     "description": "supabase datalari olmesin\nbagli oldugu supabase hesabi : vonlabstudio\nproject id:uqdiiuqpkvqxunxthpbj\napi:sb_publishable_OVeHJcQu0baBolEmE7JTmw_TZd74LNs",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "repo": "vonlab-keepalive",
     "path": "index.html",
     "mode": "multi",
@@ -141,6 +141,13 @@
         "note": "supabase destegi",
         "commitSha": "b965c27539a05194baa7ad58652a748a68021334",
         "sourceFileName": "index2.html"
+      },
+      {
+        "version": "1.1.1",
+        "date": "2026-08-29T19:27:14.908Z",
+        "note": "",
+        "commitSha": "a00907ea9e3eceb1b6cdcc4b6fd3acc10eb0fbd6",
+        "sourceFileName": "yazisma-1.html"
       }
     ],
     "track": "alpha",
