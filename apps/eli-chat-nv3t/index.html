@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yazışma Proqramı</title>
 <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
 <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
 <style>
   * { box-sizing: border-box; }
@@ -280,13 +279,19 @@
 
   // ---- Öz ID-nin QR kodunu göstərmək ----
   function openMyQr() {
+    const myId = myIdEl.textContent.trim();
+    if (!myId || myId === 'yüklənir...') {
+      statusEl.textContent = 'ID hələ hazır deyil, bir saniyə gözlə';
+      return;
+    }
     const wrap = document.getElementById('qrCanvasWrap');
     wrap.innerHTML = '';
-    const canvas = document.createElement('canvas');
-    wrap.appendChild(canvas);
-    QRCode.toCanvas(canvas, myIdEl.textContent, { width: 220, margin: 1 }, err => {
-      if (err) statusEl.textContent = 'QR yaratmaq alınmadı';
-    });
+    const img = document.createElement('img');
+    img.width = 220;
+    img.height = 220;
+    img.alt = 'QR kod';
+    img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=' + encodeURIComponent(myId);
+    wrap.appendChild(img);
     document.getElementById('qrModal').style.display = 'flex';
   }
 
