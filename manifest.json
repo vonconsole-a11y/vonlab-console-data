@@ -252,5 +252,41 @@
     ],
     "track": "production",
     "rollout": 100
+  },
+  {
+    "id": "narralink-htp7",
+    "name": "NarraLink",
+    "description": "",
+    "version": "1.0.0",
+    "repo": "vonlab-narralink",
+    "path": "index.html",
+    "mode": "multi",
+    "published": false,
+    "pagesUrl": "",
+    "customDomain": "",
+    "icon": null,
+    "category": "tool",
+    "group": "",
+    "favorite": false,
+    "archived": false,
+    "files": [
+      "index.html"
+    ],
+    "analytics": {
+      "enabled": false,
+      "code": ""
+    },
+    "createdAt": "2026-08-29T20:12:51.290Z",
+    "versionHistory": [
+      {
+        "version": "1.0.0",
+        "date": "2026-08-29T20:12:51.290Z",
+        "note": "İlk sürüm",
+        "commitSha": "12f6d680a9bd428fa4bfd835c17e372ee6368f9f",
+        "sourceFileName": "narralink (1).html"
+      }
+    ],
+    "track": "production",
+    "rollout": 100
   }
 ]
