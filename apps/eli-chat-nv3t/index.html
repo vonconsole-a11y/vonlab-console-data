@@ -207,6 +207,10 @@
   </header>
 
   <div class="setup" id="setup">
+    <label>Adın:</label>
+    <div class="connect-row" style="margin-bottom:12px;">
+      <input type="text" id="myName" placeholder="Adını yaz (məs. Elvin)">
+    </div>
     <label>Sənin ID-n (bunu qarşı tərəfə göndər):</label>
     <div class="id-box">
       <span id="myId">yüklənir...</span>
@@ -250,27 +254,112 @@
 
 <script>
   const peer = new Peer();
-  let conn = null;
+
+  const connections = new Map();   // peerId -> DataConnection (mənim bilavasitə qoşulduqlarım)
+  const connMeta = new Map();      // peerId -> { name }
+  const usedPeers = new Set();     // bir dəfə qoşulub-ayrılan ID-lər (bir daha qəbul edilmir)
+  const seenMsgIds = new Set();    // təkrar mesajların qarşısını almaq üçün
 
   const statusEl = document.getElementById('status');
   const myIdEl = document.getElementById('myId');
   const messagesEl = document.getElementById('messages');
   const chatArea = document.getElementById('chat-area');
-  const setupEl = document.getElementById('setup');
+  const myNameInput = document.getElementById('myName');
+
+  function myName() {
+    return (myNameInput.value.trim()) || 'Anonim';
+  }
+
+  function updateStatus() {
+    const n = connections.size;
+    if (n === 0) statusEl.textContent = 'Hazırsan. ID-ni paylaş və ya qoşul.';
+    else statusEl.textContent = '✅ Söhbətdə: ' + n + ' nəfər';
+  }
 
   peer.on('open', id => {
     myIdEl.textContent = id;
-    statusEl.textContent = 'Hazırsan. ID-ni paylaş və ya qoşul.';
-  });
-
-  peer.on('connection', c => {
-    conn = c;
-    setupConnection();
+    updateStatus();
   });
 
   peer.on('error', err => {
     statusEl.textContent = 'Xəta: ' + err.type;
   });
+
+  // ---- Gələn qoşulma sorğuları ----
+  peer.on('connection', conn => {
+    conn.on('open', () => {
+      if (usedPeers.has(conn.peer)) {
+        conn.send({ type: 'rejected' });
+        setTimeout(() => conn.close(), 300);
+        return;
+      }
+      acceptConnection(conn);
+    });
+  });
+
+  // ---- Qoşulmanı qəbul etmək (həm gələn, həm gedən üçün ortaq) ----
+  function acceptConnection(conn) {
+    connections.set(conn.peer, conn);
+    chatArea.style.display = 'flex';
+    conn.send({ type: 'hello', name: myName() });
+
+    conn.on('data', data => handleData(conn, data));
+
+    conn.on('close', () => handleDisconnect(conn));
+
+    updateStatus();
+  }
+
+  function handleData(conn, data) {
+    if (!data || !data.type) return;
+
+    if (data.type === 'rejected') {
+      alert('Bu dəvət artıq istifadə olunub. Yenidən qoşula bilməzsən.');
+      connections.delete(conn.peer);
+      return;
+    }
+
+    if (data.type === 'hello') {
+      connMeta.set(conn.peer, { name: data.name });
+      addSysMsg(data.name + ' qoşuldu');
+      return;
+    }
+
+    if (data.id) {
+      if (seenMsgIds.has(data.id)) return;
+      seenMsgIds.add(data.id);
+    }
+
+    if (data.type === 'msg') {
+      addMsg(data.name + ': ' + data.text, 'them');
+      relay(data, conn.peer);
+    } else if (data.type === 'system') {
+      addSysMsg(data.text);
+      relay(data, conn.peer);
+    }
+  }
+
+  function handleDisconnect(conn) {
+    usedPeers.add(conn.peer);
+    const meta = connMeta.get(conn.peer);
+    const name = meta ? meta.name : 'Naməlum';
+    connections.delete(conn.peer);
+    connMeta.delete(conn.peer);
+    addSysMsg(name + ' ayrıldı');
+    relay({ type: 'system', text: name + ' ayrıldı', id: randId() }, conn.peer);
+    updateStatus();
+  }
+
+  // Bir mesajı mənə göndərəndən başqa hər kəsə ötürmək (qrup söhbəti üçün)
+  function relay(data, exceptPeerId) {
+    connections.forEach((c, peerId) => {
+      if (peerId !== exceptPeerId && c.open) c.send(data);
+    });
+  }
+
+  function randId() {
+    return Math.random().toString(36).slice(2) + Date.now();
+  }
 
   function copyId() {
     navigator.clipboard.writeText(myIdEl.textContent);
@@ -330,33 +419,22 @@
 
   function connectToPeer() {
     const id = document.getElementById('peerIdInput').value.trim();
-    if (!id) return;
-    conn = peer.connect(id);
-    conn.on('open', () => setupConnection());
-  }
-
-  function setupConnection() {
-    chatArea.style.display = 'flex';
-    setupEl.style.display = 'none';
-    statusEl.textContent = '✅ Qoşuldu: ' + conn.peer;
-    addSysMsg('Bağlantı quruldu, danışa bilərsən.');
-
-    conn.on('data', data => {
-      addMsg(data, 'them');
-    });
-
-    conn.on('close', () => {
-      statusEl.textContent = '❌ Bağlantı kəsildi';
-      addSysMsg('Qarşı tərəf ayrıldı.');
+    if (!id || connections.has(id)) return;
+    const conn = peer.connect(id);
+    conn.on('open', () => acceptConnection(conn));
+    conn.on('error', () => {
+      statusEl.textContent = 'Qoşulmaq alınmadı';
     });
   }
 
   function sendMsg() {
     const input = document.getElementById('msgInput');
     const text = input.value.trim();
-    if (!text || !conn || !conn.open) return;
-    conn.send(text);
-    addMsg(text, 'me');
+    if (!text || connections.size === 0) return;
+    const data = { type: 'msg', name: myName(), text, id: randId() };
+    seenMsgIds.add(data.id);
+    addMsg('Sən: ' + text, 'me');
+    relay(data, null);
     input.value = '';
   }
 
