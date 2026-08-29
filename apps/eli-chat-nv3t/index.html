@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yazışma Proqramı</title>
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #ffffff;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  .container {
+    width: 100%;
+    max-width: 480px;
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 14px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+  header {
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+    padding: 16px 20px;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 18px;
+    color: #111;
+  }
+  #status {
+    font-size: 12px;
+    color: #888;
+    margin-top: 4px;
+  }
+  .setup {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .setup label {
+    font-size: 13px;
+    color: #555;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .id-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin-bottom: 12px;
+  }
+  .id-box span {
+    font-weight: 600;
+    color: #111;
+    font-size: 14px;
+    flex: 1;
+    word-break: break-all;
+  }
+  .id-box button {
+    background: #f0f0f0;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    color: #333;
+  }
+  .connect-row {
+    display: flex;
+    gap: 8px;
+  }
+  input[type=text] {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background: #fff;
+  }
+  input[type=text]:focus {
+    border-color: #bbb;
+  }
+  button.primary {
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  button.primary:hover { background: #333; }
+  #chat-area {
+    display: none;
+    flex-direction: column;
+    height: 420px;
+  }
+  #messages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    background: #ffffff;
+  }
+  .msg {
+    max-width: 75%;
+    padding: 8px 12px;
+    border-radius: 14px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+  .me {
+    background: #111;
+    color: #fff;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+  }
+  .them {
+    background: #f2f2f2;
+    color: #111;
+    margin-right: auto;
+    border-bottom-left-radius: 4px;
+  }
+  .sys {
+    text-align: center;
+    color: #999;
+    font-size: 12px;
+    margin: 10px 0;
+  }
+  .input-row {
+    display: flex;
+    gap: 8px;
+    padding: 12px;
+    border-top: 1px solid #eee;
+    background: #fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>💬 Yazışma Proqramı</h1>
+    <div id="status">Bağlantı gözlənilir...</div>
+  </header>
+
+  <div class="setup" id="setup">
+    <label>Sənin ID-n (bunu qarşı tərəfə göndər):</label>
+    <div class="id-box">
+      <span id="myId">yüklənir...</span>
+      <button onclick="copyId()">Kopyala</button>
+    </div>
+    <label>Qoşulmaq istədiyin ID:</label>
+    <div class="connect-row">
+      <input type="text" id="peerIdInput" placeholder="Qarşı tərəfin ID-sini yaz">
+      <button class="primary" onclick="connectToPeer()">Qoşul</button>
+    </div>
+  </div>
+
+  <div id="chat-area">
+    <div id="messages"></div>
+    <div class="input-row">
+      <input type="text" id="msgInput" placeholder="Mesaj yaz..." onkeypress="if(event.key==='Enter')sendMsg()">
+      <button class="primary" onclick="sendMsg()">Göndər</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const peer = new Peer();
+  let conn = null;
+
+  const statusEl = document.getElementById('status');
+  const myIdEl = document.getElementById('myId');
+  const messagesEl = document.getElementById('messages');
+  const chatArea = document.getElementById('chat-area');
+  const setupEl = document.getElementById('setup');
+
+  peer.on('open', id => {
+    myIdEl.textContent = id;
+    statusEl.textContent = 'Hazırsan. ID-ni paylaş və ya qoşul.';
+  });
+
+  peer.on('connection', c => {
+    conn = c;
+    setupConnection();
+  });
+
+  peer.on('error', err => {
+    statusEl.textContent = 'Xəta: ' + err.type;
+  });
+
+  function copyId() {
+    navigator.clipboard.writeText(myIdEl.textContent);
+    statusEl.textContent = 'ID kopyalandı!';
+  }
+
+  function connectToPeer() {
+    const id = document.getElementById('peerIdInput').value.trim();
+    if (!id) return;
+    conn = peer.connect(id);
+    conn.on('open', () => setupConnection());
+  }
+
+  function setupConnection() {
+    chatArea.style.display = 'flex';
+    setupEl.style.display = 'none';
+    statusEl.textContent = '✅ Qoşuldu: ' + conn.peer;
+    addSysMsg('Bağlantı quruldu, danışa bilərsən.');
+
+    conn.on('data', data => {
+      addMsg(data, 'them');
+    });
+
+    conn.on('close', () => {
+      statusEl.textContent = '❌ Bağlantı kəsildi';
+      addSysMsg('Qarşı tərəf ayrıldı.');
+    });
+  }
+
+  function sendMsg() {
+    const input = document.getElementById('msgInput');
+    const text = input.value.trim();
+    if (!text || !conn || !conn.open) return;
+    conn.send(text);
+    addMsg(text, 'me');
+    input.value = '';
+  }
+
+  function addMsg(text, cls) {
+    const div = document.createElement('div');
+    div.className = 'msg ' + cls;
+    div.textContent = text;
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function addSysMsg(text) {
+    const div = document.createElement('div');
+    div.className = 'sys';
+    div.textContent = text;
+    messagesEl.appendChild(div);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+</script>
+
+</body>
+</html>
