@@ -257,7 +257,7 @@
     "id": "narralink-htp7",
     "name": "NarraLink",
     "description": "supabase hesab :xedicemarket\nproject id : lmkcaipikyzupkykctkd\napi : sb_publishable_BxpSUkLB3FS_rDCn_9nCbA_IWN2l6Xv",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "repo": "vonlab-narralink",
     "path": "index.html",
     "mode": "multi",
@@ -284,6 +284,13 @@
         "note": "İlk sürüm",
         "commitSha": "12f6d680a9bd428fa4bfd835c17e372ee6368f9f",
         "sourceFileName": "narralink (1).html"
+      },
+      {
+        "version": "1.0.1",
+        "date": "2026-08-29T20:57:30.040Z",
+        "note": "",
+        "commitSha": "642e93400f4c0e333702dba7c864a5f317052d2c",
+        "sourceFileName": "narralink (5).html"
       }
     ],
     "track": "production",
