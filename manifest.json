@@ -256,7 +256,7 @@
   {
     "id": "narralink-htp7",
     "name": "NarraLink",
-    "description": "supabase hesab :xedicemarket",
+    "description": "supabase hesab :xedicemarket\nproject id : lmkcaipikyzupkykctkd\napi : sb_publishable_BxpSUkLB3FS_rDCn_9nCbA_IWN2l6Xv",
     "version": "1.0.0",
     "repo": "vonlab-narralink",
     "path": "index.html",
@@ -265,7 +265,7 @@
     "pagesUrl": "https://vonconsole-a11y.github.io/vonlab-narralink/",
     "customDomain": "",
     "icon": null,
-    "category": "tool",
+    "category": "TOOL",
     "group": "",
     "favorite": false,
     "archived": false,
