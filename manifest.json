@@ -307,7 +307,7 @@
     "id": "ali-kitab-qi1a",
     "name": "Ali KItab",
     "description": "",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "repo": "vonlab-ali-kitab",
     "path": "index.html",
     "mode": "multi",
@@ -334,6 +334,13 @@
         "note": "İlk sürüm",
         "commitSha": "cd7456e59f02507d0c4b925200d9a74dc6b9db0c",
         "sourceFileName": "kitap-editoru (2).html"
+      },
+      {
+        "version": "1.0.1",
+        "date": "2026-09-01T13:19:06.990Z",
+        "note": "",
+        "commitSha": "f457721520e38d587e9d3cc2af44e91ab7e29c88",
+        "sourceFileName": "kitap-editoru (4).html"
       }
     ],
     "track": "production",
