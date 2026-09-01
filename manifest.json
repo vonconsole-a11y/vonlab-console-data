@@ -302,5 +302,41 @@
     ],
     "track": "production",
     "rollout": 100
+  },
+  {
+    "id": "ali-kitab-qi1a",
+    "name": "Ali KItab",
+    "description": "",
+    "version": "1.0.0",
+    "repo": "vonlab-ali-kitab",
+    "path": "index.html",
+    "mode": "multi",
+    "published": false,
+    "pagesUrl": "",
+    "customDomain": "",
+    "icon": null,
+    "category": "",
+    "group": "",
+    "favorite": false,
+    "archived": false,
+    "files": [
+      "index.html"
+    ],
+    "analytics": {
+      "enabled": false,
+      "code": ""
+    },
+    "createdAt": "2026-09-01T13:10:42.849Z",
+    "versionHistory": [
+      {
+        "version": "1.0.0",
+        "date": "2026-09-01T13:10:42.850Z",
+        "note": "İlk sürüm",
+        "commitSha": "cd7456e59f02507d0c4b925200d9a74dc6b9db0c",
+        "sourceFileName": "kitap-editoru (2).html"
+      }
+    ],
+    "track": "production",
+    "rollout": 100
   }
 ]
