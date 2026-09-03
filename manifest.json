@@ -359,5 +359,41 @@
     ],
     "track": "production",
     "rollout": 100
+  },
+  {
+    "id": "bonus-kart-ezas",
+    "name": "bonus kart",
+    "description": "oba nostaji",
+    "version": "1.0.0",
+    "repo": "vonlab-bonus-kart",
+    "path": "index.html",
+    "mode": "multi",
+    "published": false,
+    "pagesUrl": "",
+    "customDomain": "",
+    "icon": null,
+    "category": "",
+    "group": "",
+    "favorite": false,
+    "archived": false,
+    "files": [
+      "index.html"
+    ],
+    "analytics": {
+      "enabled": false,
+      "code": ""
+    },
+    "createdAt": "2026-09-03T09:49:13.179Z",
+    "versionHistory": [
+      {
+        "version": "1.0.0",
+        "date": "2026-09-03T09:49:13.179Z",
+        "note": "İlk sürüm",
+        "commitSha": "3fa7c1f58e6fbd3197ba01cbf9cf39d27727415c",
+        "sourceFileName": "index.html"
+      }
+    ],
+    "track": "production",
+    "rollout": 100
   }
 ]
