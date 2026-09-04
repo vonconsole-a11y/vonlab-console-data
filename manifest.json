@@ -431,5 +431,41 @@
     ],
     "track": "production",
     "rollout": 100
+  },
+  {
+    "id": "gameshelf-t6nq",
+    "name": "GameShelf",
+    "description": "",
+    "version": "1.0.0",
+    "repo": "vonlab-gameshelf",
+    "path": "index.html",
+    "mode": "multi",
+    "published": false,
+    "pagesUrl": "",
+    "customDomain": "",
+    "icon": null,
+    "category": "TOOL",
+    "group": "",
+    "favorite": false,
+    "archived": false,
+    "files": [
+      "index.html"
+    ],
+    "analytics": {
+      "enabled": false,
+      "code": ""
+    },
+    "createdAt": "2026-09-04T12:35:49.263Z",
+    "versionHistory": [
+      {
+        "version": "1.0.0",
+        "date": "2026-09-04T12:35:49.263Z",
+        "note": "İlk sürüm",
+        "commitSha": "96e169def1e389d4fcd0e8f012b1299b914b975c",
+        "sourceFileName": "oyun-kutuphanem.html"
+      }
+    ],
+    "track": "production",
+    "rollout": 100
   }
 ]
