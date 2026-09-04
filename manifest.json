@@ -197,63 +197,6 @@
     "rollout": 100
   },
   {
-    "id": "eli-chat-nv3t",
-    "name": "Eli chat",
-    "description": "",
-    "version": "1.0.3",
-    "repo": "vonlab-console-data",
-    "path": "apps/eli-chat-nv3t/index.html",
-    "mode": "single",
-    "published": true,
-    "pagesUrl": "https://vonconsole-a11y.github.io/vonlab-console-data/apps/eli-chat-nv3t/",
-    "customDomain": "",
-    "icon": null,
-    "category": "",
-    "group": "",
-    "favorite": true,
-    "archived": false,
-    "files": [
-      "index.html"
-    ],
-    "analytics": {
-      "enabled": false,
-      "code": ""
-    },
-    "createdAt": "2026-08-29T19:21:32.839Z",
-    "versionHistory": [
-      {
-        "version": "1.0.0",
-        "date": "2026-08-29T19:21:32.840Z",
-        "note": "İlk sürüm",
-        "commitSha": "ca8a2ce33ac8dec015b0df66723837f23569aed8",
-        "sourceFileName": "yazisma.html"
-      },
-      {
-        "version": "1.0.1",
-        "date": "2026-08-29T19:27:42.379Z",
-        "note": "",
-        "commitSha": "250ad9fb631607f132b822a2f4b371b4d41df406",
-        "sourceFileName": "yazisma-1.html"
-      },
-      {
-        "version": "1.0.2",
-        "date": "2026-08-29T19:30:37.916Z",
-        "note": "",
-        "commitSha": "865e76dbac0d4d8c37e2f939fd65694f2d82d5a6",
-        "sourceFileName": "yazisma-2.html"
-      },
-      {
-        "version": "1.0.3",
-        "date": "2026-08-29T19:41:07.412Z",
-        "note": "",
-        "commitSha": "039a348edee9172a204b0d5513c0c27b729f8c3a",
-        "sourceFileName": "yazisma-3.html"
-      }
-    ],
-    "track": "production",
-    "rollout": 100
-  },
-  {
     "id": "narralink-htp7",
     "name": "NarraLink",
     "description": "supabase hesab :xedicemarket\nproject id : lmkcaipikyzupkykctkd\napi : sb_publishable_BxpSUkLB3FS_rDCn_9nCbA_IWN2l6Xv",
