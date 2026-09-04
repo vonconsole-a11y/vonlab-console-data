@@ -379,7 +379,7 @@
     "id": "gameshelf-t6nq",
     "name": "GameShelf",
     "description": "supabase hesabi : sakitdm@gmail.com\nrawg api : 79a2f780d654481ea0011bf808cfd2b6",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "repo": "vonlab-gameshelf",
     "path": "index.html",
     "mode": "multi",
@@ -413,6 +413,13 @@
         "note": "",
         "commitSha": "f02cabb6a94f90aa0c9c6456f0ecd0a4948833fd",
         "sourceFileName": "oyun-kutuphanem.html"
+      },
+      {
+        "version": "1.0.2",
+        "date": "2026-09-04T13:24:16.274Z",
+        "note": "",
+        "commitSha": "0d79d7e8cab1335df9aa8ef21360cd791d474651",
+        "sourceFileName": "oyun-kutuphanem (1).html"
       }
     ],
     "track": "production",
