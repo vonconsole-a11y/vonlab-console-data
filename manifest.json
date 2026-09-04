@@ -411,7 +411,7 @@
     "category": "",
     "group": "",
     "favorite": false,
-    "archived": false,
+    "archived": true,
     "files": [
       "index.html"
     ],
